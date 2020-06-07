@@ -25,6 +25,7 @@ pipeline {
         stage('Deliver') {
             steps {
                 // sh './jenkins/scripts/deliver.sh'
+                sh 'curl -T "app.war" "http://deployer:password@http://localhost:8081/manager/text/deploy?path=/appContext&update=true"'
                 echo 'Success!'
             }
         }
